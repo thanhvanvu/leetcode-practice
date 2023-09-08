@@ -4,6 +4,9 @@
 #         self.val = val
 #         self.next = next
 
+# https://www.youtube.com/watch?v=O0By4Zq0OFc&t=372s
+# https://leetcode.com/problems/reverse-linked-list/
+
 
 def reverseList(head):
     prev = None
