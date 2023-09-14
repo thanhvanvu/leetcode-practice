@@ -1,3 +1,6 @@
+# https://leetcode.com/problems/container-with-most-water/description/
+# https://www.youtube.com/watch?v=UuiTKBwPgAo
+
 def maxArea_brute_force(height):
     area = 0
     max = 0
