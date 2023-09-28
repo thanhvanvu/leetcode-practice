@@ -1,6 +1,4 @@
 # big(O) = n^2
-# https://www.youtube.com/watch?v=MsYZSinhuFo
-
 def sortArray_insertion(nums):
     # loop through an array from second element
     for i in range(1, len(nums)):
@@ -11,7 +9,7 @@ def sortArray_insertion(nums):
 
     return nums
 
-
+# https://www.youtube.com/watch?v=MsYZSinhuFo
 def sortArray_merge(nums):
     def merge(arr, L, M, R):
         # clone the arrays
