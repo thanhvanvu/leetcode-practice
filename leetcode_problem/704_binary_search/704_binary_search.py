@@ -5,8 +5,11 @@ def search(nums, target):
     while l <= r:
         m = l + ((r - l) // 2)  # (l + r) // 2 can lead to overflow
 
+        # loop first half
         if target < nums[m]:
             r = m - 1
+
+        # loop second half
         elif target > nums[m]:
             l = m + 1
 
