@@ -9,9 +9,11 @@ def sortArray_insertion(nums):
 
     return nums
 
+
 # https://www.youtube.com/watch?v=MsYZSinhuFo
 def sortArray_merge(nums):
     def merge(arr, L, M, R):
+
         # clone the arrays
         left = arr[L: M + 1]
         right = arr[M + 1: R + 1]
@@ -68,5 +70,34 @@ def sortArray_merge(nums):
     return mergeSort(nums, 0, len(nums) - 1)
 
 
-n = [5, 2, 3, 1]
-print(sortArray_merge(n))
+def sortArray_quickSort(nums):
+    def quickSort(arr, s, e):
+        # last - first + 1 = length
+        if e - s + 1 <= 1:
+            return arr
+
+        # pick pivot = the last element
+        pivot = arr[e]
+        left = s
+
+        for i in range(s, e):
+            if arr[i] < pivot:
+                arr[left], arr[i] = arr[i], arr[left]
+                left += 1
+
+        # Move pivot in-between left and right sides
+        arr[left], arr[e] = arr[e], arr[left]
+
+        # quick sort left side
+        quickSort(arr, s, left - 1)
+
+        # quick sort right side
+        quickSort(arr, left + 1, e)
+
+        return arr
+
+    return quickSort(nums, 0, len(nums) - 1)
+
+
+n = [5, 2, 3, 1, 8, 4, 4, 0, 6]
+print(sortArray_quickSort(n))
