@@ -5,8 +5,8 @@ def containsNearbyDuplicate(nums, k):
     for R in range(len(nums)):
         # case window is too big
         if R - L > k:
-            L += 1
             window.remove(nums[L])
+            L += 1
 
         if nums[R] in window:
             return True
