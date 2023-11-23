@@ -24,6 +24,8 @@ def build_sample_tree():
 
 
 def searchBST(root, val: int):
+    # if root reaches to leaf node (root == None)
+    # while loop will stop
     while root is not None:
         if val < root.val:
             root = root.left
