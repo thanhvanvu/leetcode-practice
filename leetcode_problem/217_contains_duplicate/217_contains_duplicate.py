@@ -21,5 +21,19 @@ def containsDuplicate(nums):
     return False
 
 
-array = [1, 2, 3, 4]
-print(containsDuplicate(array))
+def containsDuplicate2(nums):
+    hashSet = set()
+
+    # loop through all element
+    for value in nums:
+        if value not in hashSet:
+            hashSet.add(value)
+        else:
+            return True  # found duplicated -> return True
+
+    # if for loop is done, it means no duplcated -> return False
+    return False
+
+
+array = [1, 2, 3, 3]
+print(containsDuplicate2(array))
