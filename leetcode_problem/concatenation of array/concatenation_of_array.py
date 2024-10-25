@@ -3,15 +3,20 @@
 
 def getConcatenation(arr):
     for i in range(len(arr)):
-
         arr.append(arr[i])
     return arr
 
 
+def getConcatenation2(nums):
+    result = []
+
+    for i in range(2):
+        for num in range(len(nums)):
+            result.append(nums[num])
+
+    return result
+
+
 if __name__ == '__main__':
     myArray = [1, 2, 1]
-    length_arr = len(myArray)
-
-    a = getConcatenation(myArray)
-
-    print('remove duplicate', a, myArray)
+    print(getConcatenation2(myArray))
