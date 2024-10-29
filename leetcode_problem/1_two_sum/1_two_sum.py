@@ -31,8 +31,22 @@ def twoSumBruteForce(arr, target):
                 return [i, j]
 
 
+def twoSumPractice(arr, target):
+    hashMap = {}  # store {value: i}
+    result = 0
+
+    for i in range(len(arr)):
+        value = arr[i]
+        result = target - value
+
+        if result not in hashMap:
+            hashMap[value] = i
+        else:
+            return [hashMap[result], i]
+
+
 if __name__ == '__main__':
     array = [3, 2, 4]
     length_arr = len(array)
 
-    print(twoSum(array, 6))
+    print(twoSumPractice(array, 5))
