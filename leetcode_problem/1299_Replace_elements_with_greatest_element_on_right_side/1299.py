@@ -1,3 +1,6 @@
+# https://leetcode.com/problems/replace-elements-with-greatest-element-on-right-side/description/
+# https://www.youtube.com/watch?v=ZHjKhUjcsaU
+
 def replaceElements_bruteForce(arr):
     for n in range(len(arr)):
         greatest = 0
