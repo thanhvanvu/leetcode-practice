@@ -1,3 +1,5 @@
+# https://leetcode.com/problems/length-of-last-word/
+
 def lengthOfLastWord(s):
     # trim front and end space
     stripped = s.strip()
@@ -9,5 +11,13 @@ def lengthOfLastWord(s):
     return length
 
 
-string = "aa"
-print(lengthOfLastWord(string))
+def lengthOfLastWord_1(s):
+    s = s.split(" ")
+    for i in range(len(s) - 1, -1, -1):
+        if s[i] != "":
+            last_word = s[i]
+            return len(last_word)
+
+
+string = "Hello World"
+print(lengthOfLastWord_1(string))
