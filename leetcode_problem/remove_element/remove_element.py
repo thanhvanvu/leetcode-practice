@@ -11,10 +11,28 @@ def removeElement(arr, value):
     return flag
 
 
+def removeElement_practice(nums, val):
+    k = 0
+
+    for i in range(len(nums)):
+        # if nums[i] != val:
+        #     nums[k] = nums[i]
+        #     k += 1
+
+        # if we see nums[i] == val
+        # do not increase k, increase i until we found nums[i] = val
+
+        if nums[i] == val:
+            continue
+        else:
+            # at position k, replace nums[k] with nums[i] we just found,
+            # so the val at position k is replaced and get rid of.
+            nums[k] = nums[i]
+            k += 1
+
+    return k
+
+
 if __name__ == '__main__':
-    myArray = [0, 1, 2, 2, 3, 0, 4, 2]
-    length_arr = len(myArray)
-
-    a = removeElement(myArray, 2)
-
-    print('remove duplicate', a, myArray)
+    myArray = [3, 2, 2, 3]
+    print(removeElement_practice(myArray, 3))
