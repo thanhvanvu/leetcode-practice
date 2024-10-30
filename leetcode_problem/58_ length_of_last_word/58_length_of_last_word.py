@@ -1,4 +1,4 @@
-# https://leetcode.com/problems/length-of-last-word/
+
 
 def lengthOfLastWord(s):
     # trim front and end space
