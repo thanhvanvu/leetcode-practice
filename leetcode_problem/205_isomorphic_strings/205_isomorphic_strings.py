@@ -1,5 +1,5 @@
-# https://leetcode.com/problems/unique-email-addresses/description/
-# https://www.youtube.com/watch?v=TC_xLIWl7qY
+# https://leetcode.com/problems/isomorphic-strings/description/
+# https://www.youtube.com/watch?v=7yF-U1hLEqQ
 
 def isIsomorphic(s, t):
     # 2 string will always have the same length
