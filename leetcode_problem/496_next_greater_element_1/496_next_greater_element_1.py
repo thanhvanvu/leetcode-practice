@@ -1,4 +1,3 @@
-
 # O(n.m)
 def nextGreaterElement(nums1, nums2):
     # value in nums1 will be always in nums2
@@ -54,7 +53,30 @@ def nextGreaterElement_stack(nums1, nums2):
 
     return output
 
-nums1 = [1, 3, 5, 2, 4]
-nums2 = [6, 5, 4, 3, 2, 1, 7]
 
-print(nextGreaterElement_stack(nums1, nums2))
+def nextGreaterElement_practice(nums1, nums2):
+    hashNums1 = {}
+    output = [0] * len(nums1)
+
+    for i, value in enumerate(nums1):
+        hashNums1[value] = i
+
+    for i, value in enumerate(nums2):
+        if value in hashNums1:
+            if i + 1 >= len(nums2):
+                output[hashNums1[value]] = -1
+
+            for j in range(i + 1, len(nums2)):
+                if nums2[j] > value:
+                    output[hashNums1[value]] = nums2[j]
+                    break
+                else:
+                    output[hashNums1[value]] = -1
+
+    print(output)
+
+
+nums1 = [4, 1, 2]
+nums2 = [1, 3, 4, 2]
+
+print(nextGreaterElement_practice(nums1, nums2))
