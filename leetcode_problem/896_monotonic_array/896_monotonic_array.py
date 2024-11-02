@@ -58,6 +58,23 @@ def isMonotonic(nums):
     return increase or decrease
 
 
-nums = [1,3,2]
+def isMonotonic_practice(nums):
+    increase = True
+    decrease = True
 
-print(isMonotonic(nums))
+    for i in range(len(nums) - 1):
+        if not (nums[i] <= nums[i + 1]):
+            increase = False
+
+        if not (nums[i] >= nums[i + 1]):
+            decrease = False
+
+    # true or true ==> true
+    # true or false ==> false
+    # false or false ==> false
+    return increase or decrease
+
+
+nums = [6, 5, 4, 4]
+
+print(isMonotonic_practice(nums))
