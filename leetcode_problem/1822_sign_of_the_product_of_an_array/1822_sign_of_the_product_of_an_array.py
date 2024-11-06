@@ -1,6 +1,9 @@
-# https://leetcode.com/problems/first-unique-character-in-a-string/description/
-# https://www.youtube.com/watch?v=rBENYgWy3xU
+# https://leetcode.com/problems/sign-of-the-product-of-an-array/description/
 
+# if we see 0 --> return 0
+# product will always be positive if we have even number of "-": example: 2 number of -1, 4 number of -2
+# product will always be negative if we have odd number of "-"
+# just count negative number and return
 def arraySign(nums):
     negative = 0
 
