@@ -20,8 +20,32 @@ def strStr(haystack, needle):
         return -1
 
 
+def strStr1(haystack, needle):
+    h = 0
+    n = 0
+    output = ""
+    if len(haystack) < len(needle):
+        return -1
 
-hay = "sadbutsad"
-need = "sad"
+    for i in range(len(haystack)):
+        h = i
 
-print(strStr(hay, need))
+        while h < len(haystack) and n < len(needle):
+            if haystack[h] == needle[n]:
+                output += haystack[h]
+                h += 1
+                n += 1
+            else:
+                output = ""
+                n = 0
+                break
+
+        if len(output) == len(needle):
+            return i
+
+    return -1
+
+hay = "leetcode"
+need = "leeto"
+
+print(strStr1(hay, need))
