@@ -21,6 +21,20 @@ def longestConsecutive(nums):
     return longest
 
 
-nums = [100, 4, 200, 1, 3, 2]
+def longestConsecutive_practice(nums):
+    nums_set = set(nums)
+    longest = 0
+    for i in nums:
+        if i - 1 not in nums_set:
+            count = 1
+            while i + count in nums_set:
+                count += 1
 
-print(longestConsecutive(nums))
+            longest = max(longest, count)
+
+    return longest
+
+
+nums = [0,3,7,2,5,8,4,6,0,1]
+
+print(longestConsecutive_practice(nums))
