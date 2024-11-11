@@ -24,5 +24,21 @@ def sortColors(nums):
     return nums
 
 
-nums = [2, 0, 2, 1, 1, 1, 0]
-print(sortColors(nums))
+def sortColors_bucketSort(nums):
+    bucket = [0 for i in range(2 + 1)]
+
+    for i in nums:
+        bucket[i] += 1
+
+    print(bucket)
+
+    k = 0
+    for b in range(len(bucket)):
+        for j in range(bucket[b]):
+            nums[k] = b  # position = index
+            k += 1
+    return nums
+
+
+nums = [2, 0, 2, 1, 1, 0]
+print(sortColors_bucketSort(nums))

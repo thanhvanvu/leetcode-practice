@@ -23,6 +23,26 @@ def isPalindrome(s: str):
     return True
 
 
-string = "race a car"
+def isPalindrome_practice(s):
+    L = 0
+    R = len(s) - 1
 
-print(isPalindrome(string))
+    while L < R:
+        if s[L].lower() == s[R].lower():
+            L += 1
+            R -= 1
+
+        elif not s[L].isalnum():  # if s[L] is not alphabet
+            L += 1
+
+        elif not s[R].isalnum():
+            R -= 1
+        else:  # if s[L] != s[R]
+            return False
+
+    return True
+
+
+string = "A man, a plan, a canal: Panama"
+
+print(isPalindrome_practice(string))
