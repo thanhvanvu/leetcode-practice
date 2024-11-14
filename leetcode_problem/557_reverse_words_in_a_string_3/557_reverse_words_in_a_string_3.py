@@ -1,3 +1,5 @@
+# https://leetcode.com/problems/reverse-words-in-a-string-iii/description/
+# https://www.youtube.com/watch?v=7kUEwiwwnlA
 def reverseWords(s):
     l = 0
     r = 0
@@ -31,5 +33,23 @@ def reverseWords(s):
     return "".join(s_list)
 
 
+def reverseWords_split(s):
+    s = s.split(" ")
+
+    for i in range(len(s)):
+        string = list(s[i])
+        l = 0
+        r = len(string) - 1
+        while l < r:
+            string[l], string[r] = string[r], string[l]
+            l += 1
+            r -= 1
+
+        string = "".join(string)
+        s[i] = string
+
+    return " ".join(s)
+
+
 s = "Let's take LeetCode contest"
-print(reverseWords(s))
+print(reverseWords_split(s))
