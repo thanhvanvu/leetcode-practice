@@ -38,6 +38,26 @@ def backspaceCompare(s, t):
     # return True
 
 
-s = "a##c"
-t = "#a#c"
-print(backspaceCompare(s, t))
+def backspaceCompare_practice(s,t):
+    stack_s =[]
+    stack_t = []
+
+    for c in s:
+        if c == "#" and len(stack_s) > 0:
+            stack_s.pop()
+
+        if c != "#":
+            stack_s.append(c)
+
+    for c in t:
+        if c == "#" and len(stack_t) > 0:
+            stack_t.pop()
+
+        if c != "#":
+            stack_t.append(c)
+
+    return True if stack_s == stack_t else False
+
+s = "a#c"
+t = "b"
+print(backspaceCompare_practice(s, t))
