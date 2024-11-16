@@ -28,7 +28,7 @@ def threeSum(nums):
                 result_three_some.append([nums[i], nums[l], nums[r]])
                 l += 1
 
-                while nums[l] == nums[l-1] and l < r:
+                while nums[l] == nums[l - 1] and l < r:
                     l += 1
 
     return result_three_some
@@ -53,7 +53,40 @@ def threeSum(nums):
 #
 #     return result
 
+def threeSum_practice(nums):
+    nums.sort()
+    result = []
+
+    for i, num in enumerate(nums):
+
+        # we do not want nums[i] == nums[i-1]
+        if i > 0 and nums[i] == nums[i - 1]:
+            continue  # skip
+
+        l = i + 1
+        r = len(nums) - 1
+
+        while l < r:
+            three_sum = nums[l] + nums[r] + nums[i]
+            # move l pointer will increase sum
+            if three_sum < 0:
+                l += 1
+
+            # move r pointer will decrease sum
+            elif three_sum > 0:
+                r -= 1
+            else:
+                result.append([nums[i], nums[l], nums[r]])
+                l += 1
+
+                # we do not want to take duplicate number
+                # [1, 1, 1, 1, 2, 3]
+                # use while loop to reach the different number
+                # also we do not want l meets r
+                while nums[l] == nums[l - 1] and l < r:
+                    l += 1
+    return result
+
 
 list_num = [-1, 0, 1, 2, -1, -4]
-# print(threeSum(list_num))
-threeSum(list_num)
+print(threeSum_practice(list_num))
