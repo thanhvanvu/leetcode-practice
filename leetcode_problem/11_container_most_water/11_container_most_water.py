@@ -41,6 +41,28 @@ def maxArea(height):
     return max
 
 
-h = [1, 8, 6, 2, 5, 4, 8, 3, 7]
+# two pointer
+def maxArea_practice(height):
+    L = 0
+    R = len(height) - 1
+    result_max_area = float("-inf")
 
-print(maxArea(h))
+    while L < R:
+        width = R - L
+        h = min(height[L], height[R])
+        area = width * h
+
+        result_max_area = max(result_max_area, area)
+
+        if height[L] <= height[R]:
+            L += 1
+        else:
+            R -= 1
+
+    return result_max_area
+
+
+
+h = [1,1]
+
+print(maxArea_practice(h))
