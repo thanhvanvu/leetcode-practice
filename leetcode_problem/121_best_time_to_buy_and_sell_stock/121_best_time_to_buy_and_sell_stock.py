@@ -16,5 +16,17 @@ def maxProfit(prices):
     return max_profit
 
 
+def maxProfit_practice(prices):
+    L = 0
+    max_output = 0
+
+    for R in range(1, len(prices)):
+        profit = prices[R] - prices[L]
+        max_output = max(max_output, profit)
+        if prices[R] <= prices[L]:
+            L = R
+    return max_output
+
+
 prices = [7, 2, 5, 3, 1, 4, 6]
 print(maxProfit(prices))
