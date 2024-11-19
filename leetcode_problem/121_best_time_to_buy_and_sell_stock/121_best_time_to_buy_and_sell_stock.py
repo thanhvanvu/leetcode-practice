@@ -29,4 +29,4 @@ def maxProfit_practice(prices):
 
 
 prices = [7, 2, 5, 3, 1, 4, 6]
-print(maxProfit(prices))
+print(maxProfit_practice(prices))
