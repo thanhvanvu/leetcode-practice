@@ -19,5 +19,26 @@ def lengthOfLongestSubstring(s):
     return length
 
 
+def lengthOfLongestSubstring_practice(s):
+    # to check repeating character
+    # use set()
+    charSet = set()
+    length = 0
+    L = 0
+    for R in range(len(s)):
+        char = s[R]
+        while s[R] in charSet:
+            charSet.remove(s[L])
+            L += 1
+
+        # if char not in charset:
+        charSet.add(s[R])
+
+        sizeWindow = R - L + 1
+        length = max(length, sizeWindow)
+
+    return length
+
+
 s = "abcabcbb"
-print(lengthOfLongestSubstring(s))
+print(lengthOfLongestSubstring_practice(s))
