@@ -14,6 +14,7 @@ def numOfSubarrays_bruteFroce(arr, k, threshold):
 
     return count
 
+
 # https://leetcode.com/problems/number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold/description/
 
 def numOfSubarray(arr, k, threshold):
@@ -38,8 +39,28 @@ def numOfSubarray(arr, k, threshold):
 
     return count
 
+
+def numOfSubarray_practice(arr, k, threshold):
+    L = 0
+    total = 0
+    result = 0
+    for R in range(len(arr)):
+        num = arr[R]
+        total = total + num
+
+        if R - L + 1 == k:
+            average = total // k
+            if average >= threshold:
+                result += 1
+
+            # shrink window to find new subarray
+            total = total - arr[L]
+            L += 1
+    return result
+
+
 arr = [2, 2, 2, 2, 5, 5, 5, 8]
 k = 3
 threshold = 4
 
-print(numOfSubarray(arr, k, threshold))
+print(numOfSubarray_practice(arr, k, threshold))
