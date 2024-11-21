@@ -1,3 +1,6 @@
+# https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/description/
+# https://www.youtube.com/watch?v=kEfPSzgL-Ss
+
 def maxVowels(s: str, k: int) -> int:
     vowel = {"a", "e", "i", "o", "u"}
     maximum = 0
@@ -33,7 +36,7 @@ def maxVowels(s: str, k: int) -> int:
         # just return it immediately
         if count == k:
             return count
-    
+
     return maximum
 
 
