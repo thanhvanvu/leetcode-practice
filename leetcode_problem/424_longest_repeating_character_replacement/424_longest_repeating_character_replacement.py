@@ -29,6 +29,7 @@ def characterReplacement(s, k):
 
     return result
 
+
 def characterReplacement_practice(s, k):
     L = 0
     longest = 0
@@ -64,6 +65,7 @@ def characterReplacement_practice(s, k):
         longest = max(longest, window)
 
     return longest
+
 
 s = "ABABBA"
 k = 2
