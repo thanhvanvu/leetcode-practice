@@ -18,10 +18,35 @@ def minSubArrayLen(target, nums):
     return 0 if result == float("inf") else result
 
 
-target = 11
-nums = [1, 1, 1, 1, 1, 1, 1, 1]
+def minSubArrayLen_practice(target, nums):
+    L = 0
+    total = 0
+    min_window = float("inf")
 
-print(minSubArrayLen(target, nums))
+    for R in range(len(nums)):
+        num = nums[R]
+        total = total + num
+
+        # check and keep shrinking window
+        # until we find new subarray that meets condition
+        while total >= target:
+            window = R - L + 1
+            min_window = min(window, min_window)
+
+            # shrink window to find new subarray
+            total = total - nums[L]
+            L += 1
+
+    if min_window == float("inf"):
+        return 0
+    else:
+        return min_window
+
+
+target = 11
+nums = [1,1,1,1,1,1,1,1]
+
+print(minSubArrayLen_practice(target, nums))
 
 # nums = [2,3,1,2,4,3]
 # total = 0
