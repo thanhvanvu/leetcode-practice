@@ -11,8 +11,24 @@ def makeGood(s):
     return "".join(stack)
 
 
-s = "s"
-print(makeGood(s))
+def makeGood_practice(s):
+    stack = []
+
+    for char in s:
+        if stack and char == stack[-1]:
+            stack.append(char)
+        elif stack and char.lower() == stack[-1]:
+            stack.pop()
+        elif stack and char.upper() == stack[-1]:
+            stack.pop()
+        else:
+            stack.append(char)
+
+    return "".join(stack)
+
+
+s = "leEeetcode"
+print(makeGood_practice(s))
 
 # aB
 # check if B is upperCase and B.lower() == a
