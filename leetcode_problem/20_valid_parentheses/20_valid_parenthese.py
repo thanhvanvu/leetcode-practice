@@ -2,7 +2,6 @@
 # https://leetcode.com/problems/valid-parentheses/
 
 def isValid(string):
-
     # create stack
     stack = []
 
@@ -38,10 +37,40 @@ def isValid(string):
         return False
 
 
+def isValid_practice(s):
+    stack = []
+    parentheses = {
+        ")": "(",
+        "}": "{",
+        "]": "["
+    }
+
+    for char in s:
+        # if stack not empty
+        # and char is in hashmap
+        # check the last parenthe in hashmap
+        if stack and char in parentheses:
+            last_char = stack[-1]
+            if last_char == parentheses[char]:
+                stack.pop()
+            else:
+                # return False immediately
+                # if do not see the match
+                return False
+
+        if char not in parentheses:
+            stack.append(char)
+
+    if len(stack) > 0:
+        return False
+    else:
+        return True
+
+
 if __name__ == '__main__':
-    s = "()[}{}"
+    s = "(])"
     length_arr = len(s)
 
-    a = isValid(s)
+    a = isValid_practice(s)
 
     print('isValid', a)
