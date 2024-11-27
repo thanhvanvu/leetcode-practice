@@ -26,6 +26,32 @@ def evalRPN(tokens):
 
     return stack[-1]
 
-tokens = ["4","-2","/","2","-3","-","-"]
 
-print(evalRPN(tokens))
+def evalRPN_practice(tokens):
+    stack = []
+    for t in tokens:
+        if t == "+":
+            result = int(stack.pop()) + int(stack.pop())
+            stack.append(result)
+        elif t == "-":
+            a = int(stack.pop())
+            b = int(stack.pop())
+            result = b - a
+            stack.append(result)
+        elif t == "*":
+            result = int(stack.pop()) * int(stack.pop())
+            stack.append(result)
+        elif t == "/":
+            a = int(stack.pop())
+            b = int(stack.pop())
+            result = b / a
+            stack.append(int(result))
+        else:
+            stack.append(t)
+
+    return stack[-1]
+
+
+tokens = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]
+
+print(evalRPN_practice(tokens))
