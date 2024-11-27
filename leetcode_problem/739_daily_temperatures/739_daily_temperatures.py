@@ -19,7 +19,21 @@ def dailyTemperatures(temperatures):
 
     return output
 
+def dailyTemperatures_practice(temperatures):
+    output = [0] * len(temperatures)
 
+    stack = [] # pair: [index, temp]
+
+    for i, t in enumerate(temperatures):
+        while stack and t > stack[-1][1]:
+            index, temp = stack.pop()
+            diff = i - index
+
+            # set value
+            output[index] = diff
+
+        stack.append([i, t])
+    return output
 
 temperatures = [73, 74, 75, 71, 69, 72, 76, 73]
-print(dailyTemperatures(temperatures))
+print(dailyTemperatures_practice(temperatures))
