@@ -19,7 +19,25 @@ def search(nums, target):
     return -1
 
 
-array = [-1, 0, 3, 5, 9, 12]
-value = 2
+def search_practice(nums, target):
+    L = 0
+    R = len(nums) - 1
 
-print(search(array, value))
+    while L <= R:
+
+        mid = L + (R - L) // 2
+
+        if nums[mid] > target:
+            R = mid - 1
+        elif nums[mid] < target:
+            L = mid + 1
+        else:
+            return mid
+
+    return -1
+
+
+array = [-1, 0, 3, 5, 9, 12]
+value = 9
+
+print(search_practice(array, value))
