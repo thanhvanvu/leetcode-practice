@@ -13,9 +13,9 @@ def reverseList(head):
     curr = head
 
     while curr is not None:
-        next_node = curr.next  # save next
+        next_node = curr.next  # save next node before breaking the link
         curr.next = prev  # reverse
-        prev = curr  # advance prev and curr
-        curr = next_node  # advance prev and curr
+        prev = curr  # move pointer prev to next node
+        curr = next_node  # move pointer curr to next node
 
     return prev
