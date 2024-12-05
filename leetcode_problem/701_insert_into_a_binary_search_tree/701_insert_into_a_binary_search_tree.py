@@ -71,11 +71,27 @@ class TreeNode:
         self.root.left.left = TreeNode(1)
         self.root.left.right = TreeNode(3)
 
+    def inorderTraversal(self, root):
+        res = []
+
+        def inorder(root):
+            if root is None:
+                return
+
+            inorder(root.left)
+            res.append(root.val)
+            inorder(root.right)
+
+        inorder(root)
+
+        return res
 
 bst = TreeNode()
 
 bst.build_sample_tree()
 
 bst.insertIntoBST(bst.root, 5)
+
+bst.inorderTraversal(bst.root)
 
 bst.print_subtree(bst.root)
