@@ -39,3 +39,4 @@ def searchBST(root, val: int):
 root = build_sample_tree()
 
 print(print_subtree(searchBST(root, 2)))
+print(searchBST(root, 2))
