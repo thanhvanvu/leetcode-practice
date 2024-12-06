@@ -45,6 +45,35 @@ def levelOrder(root):
     return result
 
 
+def levelOrder_practice(root):  # iterative solution
+    queue = deque()
+    result = []
+
+    if root is not None:
+        queue.append(root)
+
+    while len(queue) > 0:
+        level_array = []
+
+        for i in range(len(queue)):
+            cur = queue.popleft()
+
+            level_array.append(cur.val)
+
+            # check if node has right or left node ?
+            if cur.left is not None:
+                queue.append(cur.left)
+
+            if cur.right is not None:
+                queue.append(cur.right)
+
+        # after for loop is done
+        # it means, all nodes at h level are added to stack
+        result.append(level_array)
+
+    return result
+
+
 # Helper function to build a sample binary search tree
 def build_sample_tree():
     # Create nodes for a sample BST
@@ -60,4 +89,4 @@ def build_sample_tree():
 # Create a sample binary search tree
 root = build_sample_tree()
 
-print(levelOrder(root))
+print(levelOrder_practice(root))
