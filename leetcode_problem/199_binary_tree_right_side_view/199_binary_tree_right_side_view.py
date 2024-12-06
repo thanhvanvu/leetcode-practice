@@ -43,6 +43,65 @@ def rightSideView(root):
     print(result)
 
 
+def rightSideView_practice(root):
+    queue = deque()
+    result = []
+
+    if root is not None:
+        queue.append(root)
+
+    while len(queue) > 0:
+        level_array = []
+        for i in range(len(queue)):
+            cur = queue.popleft()
+
+            level_array.append(cur.val)
+
+            if cur.left is not None:
+                queue.append(cur.left)
+
+            if cur.right is not None:
+                queue.append(cur.right)
+
+        # level_array = [1,2,3]
+        # meaning at h level has node 1,2,3
+        # from right side, we only want right most node
+        # return level_array[-1]
+        if level_array:
+            result.append(level_array[-1])
+
+    return result
+
+
+def rightSideView_practice_2(root):
+    queue = deque()
+    result = []
+
+    if root is not None:
+        queue.append(root)
+
+    while len(queue) > 0:
+        rightNode = None
+        for i in range(len(queue)):
+            cur = queue.popleft()
+
+            if cur:
+                rightNode = cur
+
+            if cur.left is not None:
+                queue.append(cur.left)
+
+            if cur.right is not None:
+                queue.append(cur.right)
+
+        # when for loop is done
+        # rightNode is automatically assigned with right most node
+        if rightNode:
+            result.append(rightNode.val)
+
+    return result
+
+
 # Helper function to build a sample binary search tree
 def build_sample_tree():
     # Create nodes for a sample BST
@@ -58,4 +117,4 @@ def build_sample_tree():
 # Create a sample binary search tree
 root = build_sample_tree()
 
-print(rightSideView(root))
+print(rightSideView_practice_2(root))
