@@ -51,6 +51,31 @@ def inorder_traversal_iterative(root):
     return result
 
 
+def inorder_traversal_iterative_practice(root):
+    res = []
+    stack = []
+    cur = root
+
+    while cur is not None or len(stack) > 0:
+
+        while cur is not None:
+            # append all node to stack
+            stack.append(cur)
+
+            # move to next node
+            cur = cur.left
+
+        # when while is stopped, it means we reach leaf node (Node is None)
+        # pop node, and come back to that node
+        cur = stack.pop()
+        res.append(cur.val)
+
+        # check right Node
+        cur = cur.right
+
+    return res
+
+
 # Helper function to build a sample binary search tree
 def build_sample_tree():
     # Create nodes for a sample BST
@@ -65,4 +90,4 @@ def build_sample_tree():
 # Create a sample binary search tree
 root = build_sample_tree()
 
-print(inorder_traversal_iterative(root))
+print(inorder_traversal_iterative_practice(root))
