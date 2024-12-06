@@ -31,6 +31,25 @@ def kthSmallest(root, k):
         cur = cur.right
 
 
+def kthSmallest_practice(root, k):
+    stack = []
+    cur = root
+
+    while cur is not None or stack:
+        while cur is not None:
+            stack.append(cur)
+            cur = cur.left
+
+        cur = stack.pop()
+        k -= 1
+
+        if k == 0:
+            return cur.val
+
+        # move right
+        cur = cur.right
+
+
 # Helper function to build a sample binary search tree
 def build_sample_tree():
     # Create nodes for a sample BST
@@ -45,4 +64,4 @@ def build_sample_tree():
 # Create a sample binary search tree
 root = build_sample_tree()
 
-print(kthSmallest(root, 1))
+print(kthSmallest_practice(root, 1))
