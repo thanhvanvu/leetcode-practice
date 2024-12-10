@@ -1,6 +1,5 @@
-# https://leetcode.com/problems/path-sum/
-# https://www.youtube.com/watch?v=LSKQyOz_P8I
-# O(n)
+# https://www.youtube.com/watch?v=LSKQyOz_P8I&t=362s
+# https://leetcode.com/problems/path-sum/description/
 
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -98,8 +97,39 @@ def hasPathSum(root, targetSum):
     return dfs(root, 0)
 
 
+def hasPathSum_practice(root, targetSum):
+    # because we keep track curSum
+    # need helper function
+
+    def dfs(node, curSum):
+        if node is None:
+            return False
+
+        # calculate sum total
+        curSum = curSum + node.val
+
+        # definition of leaf node
+        if node.left is None and node.right is None:
+            if curSum == targetSum:
+                return True
+            else:
+                return False
+
+        # recursive left, right
+        left_sum = dfs(node.left, curSum)
+        right_sum = dfs(node.right, curSum)
+
+        # return True if we see either left tree or right tree has path sum == target
+        return left_sum or right_sum
+
+    return dfs(root, 0)
+
+
+
+
+
 # Create a sample binary search tree
 root = build_sample_tree()
 
 print(inorder_traversal_iterative(root))
-print(hasPathSum(root, 22))
+print(hasPathSum_practice(root, 22))
