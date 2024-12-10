@@ -109,6 +109,8 @@ def hasPathSum_practice(root, targetSum):
         curSum = curSum + node.val
 
         # definition of leaf node
+        # need to check because description says:
+        # if the tree has a root-to-leaf path
         if node.left is None and node.right is None:
             if curSum == targetSum:
                 return True
