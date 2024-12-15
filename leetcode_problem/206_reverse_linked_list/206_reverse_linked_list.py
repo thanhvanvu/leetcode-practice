@@ -12,6 +12,7 @@ def reverseList(head):
     prev = None
     curr = head
 
+    # pointer will loop until it reaches none
     while curr is not None:
         next_node = curr.next  # save next node before breaking the link
         curr.next = prev  # reverse
