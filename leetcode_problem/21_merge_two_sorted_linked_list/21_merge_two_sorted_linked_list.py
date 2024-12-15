@@ -29,6 +29,33 @@ class ListNode:
 
             return dummy.next
 
+    def mergeLists(self, list1, list2):
+        # create a dummy node
+        # this is a brand new linked list
+        dummy = ListNode()
+        node = dummy
+
+        # loop through list1, list2 until they reach NONE node
+        while list1 is not None and list2 is not None:
+            if list1.val < list2.val:
+                node.next = list1  # assign this node to brand new linked list
+                list1 = list1.next  # update new node, otherwise it will infinite loop (i += 1)
+            else:
+                node.next = list2
+                list2 = list2.next
+
+            # move to next node from the brand new linked list
+            node = node.next
+
+        # case if list1 or list2 have mode nodes
+        if list1 is not None:
+            node.next = list1
+
+        if list2 is not None:
+            node.next = list2
+
+        return dummy.next
+
 
 def mergeTwoLists_practice(list1, list2):
     dummy = ListNode()
